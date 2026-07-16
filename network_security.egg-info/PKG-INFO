@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: network_security
+Version: 0.0.1
+Author: Anitra Boral
+Author-email: anitra.boral@gmail.com
+Requires-Dist: python-dotenv
+Requires-Dist: pandas
+Requires-Dist: numpy
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
