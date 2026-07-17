@@ -12,6 +12,9 @@ import certifi
 ca = certifi.where()
 
 import pandas as pd
+
+df = pd.read_csv("Network_Data/phisingData.csv")
+print(df.head())
 from pymongo import MongoClient 
 import numpy as np
 from networksecurity.exception.exception import NetworkSecurityException
@@ -40,11 +43,18 @@ class NetworkDataExtract():
             self.database = database
             self.collection = collection
             self.records = records
+
             self.mongo_client = MongoClient(MONGO_DB_URL,)
+            self.database=self.mongo_client[self.database]
+
+            self.collection=self.database[self.collection]
             self.collection.insert_many(self.records)
             return(len(self.records))
         except Exception as e:
             raise NetworkSecurityException(e, sys) 
+        
+if __name__ == "__main__":
+    FILE_PATH = "C:/ML PROJECT/network_security/data/Network_Security.csv"
         
     
         
